@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+.option-btn {
+  transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.15s ease;
+}
+
+.option-btn:hover:not(.is-dimmed) {
+  transform: scale(1.04);
+}
+
+.option-btn:active:not(.is-dimmed) {
+  transform: scale(0.97);
+}
+
+.option-btn.is-correct {
+  box-shadow: 0 0 0 5px rgb(16 185 129 / 0.9);
+}
+
+.option-btn.is-wrong {
+  box-shadow: 0 0 0 5px rgb(239 68 68 / 0.9);
+}
+
+.option-btn.is-dimmed {
+  opacity: 0.35;
+}
+
+.option-btn:focus-visible {
+  outline: 3px solid rgb(99 102 241 / 0.6);
+  outline-offset: 3px;
+}
