@@ -8,9 +8,78 @@
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-slate-100 to-cyan-100 p-4 font-sans text-slate-800 antialiased">
 
-  <main id="game" class="w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-slate-300/60 p-6 sm:p-10">
+  <main id="intro" class="w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-slate-300/60 p-6 sm:p-10">
     <header class="text-center mb-6">
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Colour Match</h1>
+      <p class="text-slate-500 mt-2 text-sm sm:text-base">Pick the colour that matches the target.</p>
+    </header>
+
+    <div class="rounded-2xl bg-slate-50 border border-slate-200/70 p-5 text-sm sm:text-base text-slate-600">
+      <p class="font-bold text-slate-700 mb-2">How to play</p>
+      <ul class="space-y-2">
+        <li>Look at the large colour square.</li>
+        <li>Tap the button that matches it.</li>
+        <li>Earn a point for every correct match.</li>
+      </ul>
+    </div>
+
+    <button id="intro-start" type="button" class="mt-8 w-full rounded-2xl bg-indigo-600 px-8 py-4 text-lg font-bold text-white shadow-md hover:bg-indigo-500 hover:shadow-lg active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300">
+      Let's Begin
+    </button>
+  </main>
+
+  <main id="difficulty" class="hidden w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-slate-300/60 p-6 sm:p-10">
+    <header class="text-center mb-6">
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Choose Your Difficulty</h1>
+      <p class="text-slate-500 mt-2 text-sm sm:text-base">Pick how challenging you'd like today's round to be.</p>
+    </header>
+
+    <fieldset>
+      <legend class="sr-only">Difficulty level</legend>
+      <div class="space-y-3">
+        <label class="flex cursor-pointer items-center gap-3 rounded-2xl border-2 border-slate-200 bg-white p-4 sm:p-5 transition-all duration-150 has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50 has-[:checked]:ring-4 has-[:checked]:ring-indigo-100 has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-indigo-300">
+          <input class="peer sr-only" type="radio" name="difficulty" value="easy" aria-describedby="desc-easy">
+          <span class="min-w-0 flex-1">
+            <span class="block text-base sm:text-lg font-bold text-slate-900">Easy</span>
+            <span id="desc-easy" class="mt-1 block text-sm sm:text-base text-slate-500">Relaxed pace with simpler colours.</span>
+          </span>
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-slate-300 text-base font-bold text-white transition-colors duration-150 peer-checked:border-indigo-600 peer-checked:bg-indigo-600" aria-hidden="true">✓</span>
+        </label>
+
+        <label class="flex cursor-pointer items-center gap-3 rounded-2xl border-2 border-slate-200 bg-white p-4 sm:p-5 transition-all duration-150 has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50 has-[:checked]:ring-4 has-[:checked]:ring-indigo-100 has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-indigo-300">
+          <input class="peer sr-only" type="radio" name="difficulty" value="normal" aria-describedby="desc-normal">
+          <span class="min-w-0 flex-1">
+            <span class="block text-base sm:text-lg font-bold text-slate-900">Normal</span>
+            <span id="desc-normal" class="mt-1 block text-sm sm:text-base text-slate-500">A balanced classic round.</span>
+          </span>
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-slate-300 text-base font-bold text-white transition-colors duration-150 peer-checked:border-indigo-600 peer-checked:bg-indigo-600" aria-hidden="true">✓</span>
+        </label>
+
+        <label class="flex cursor-pointer items-center gap-3 rounded-2xl border-2 border-slate-200 bg-white p-4 sm:p-5 transition-all duration-150 has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50 has-[:checked]:ring-4 has-[:checked]:ring-indigo-100 has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-indigo-300">
+          <input class="peer sr-only" type="radio" name="difficulty" value="hard" aria-describedby="desc-hard">
+          <span class="min-w-0 flex-1">
+            <span class="block text-base sm:text-lg font-bold text-slate-900">Hard</span>
+            <span id="desc-hard" class="mt-1 block text-sm sm:text-base text-slate-500">Trickier colours and more rounds.</span>
+          </span>
+          <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-slate-300 text-base font-bold text-white transition-colors duration-150 peer-checked:border-indigo-600 peer-checked:bg-indigo-600" aria-hidden="true">✓</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <button id="start-game" type="button" disabled class="mt-8 w-full rounded-2xl bg-indigo-600 px-8 py-4 text-lg font-bold text-white shadow-md hover:bg-indigo-500 hover:shadow-lg active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:cursor-not-allowed disabled:active:scale-100 disabled:hover:bg-slate-300 disabled:hover:shadow-none">
+      Start Game
+    </button>
+    <button id="difficulty-back" type="button" class="mt-3 w-full rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-base font-bold text-slate-700 shadow-sm hover:bg-slate-50 active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300">
+      Back
+    </button>
+  </main>
+
+  <main id="game" class="hidden w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-slate-300/60 p-6 sm:p-10">
+    <header class="text-center mb-6">
+      <div class="flex items-center justify-center gap-3">
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Colour Match</h1>
+        <span id="difficulty-badge" class="hidden rounded-full bg-indigo-100 px-3 py-1 text-xs sm:text-sm font-bold text-indigo-700"></span>
+      </div>
       <p class="text-slate-500 mt-2 text-sm sm:text-base">Pick the colour that matches the target.</p>
     </header>
 
@@ -38,17 +107,54 @@
     <p class="mt-6 text-sm uppercase tracking-widest text-slate-400 font-semibold">Final Score</p>
     <p id="final-score" class="mt-2 text-5xl sm:text-6xl font-extrabold text-indigo-600">0 / 10</p>
     <p id="final-message" class="mt-4 text-slate-500 text-base sm:text-lg"></p>
-    <button id="play-again" type="button" class="mt-8 inline-block rounded-2xl bg-indigo-600 px-8 py-3 text-base font-bold text-white shadow-md hover:bg-indigo-500 hover:shadow-lg active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300">
-      Play Again
-    </button>
+    <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+      <button id="play-again" type="button" class="inline-block rounded-2xl bg-indigo-600 px-8 py-3 text-base font-bold text-white shadow-md hover:bg-indigo-500 hover:shadow-lg active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300">
+        Play Again
+      </button>
+      <button id="change-difficulty" type="button" class="inline-block rounded-2xl border-2 border-slate-200 bg-white px-8 py-3 text-base font-bold text-indigo-600 shadow-sm hover:bg-slate-50 active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300">
+        Change Difficulty
+      </button>
+    </div>
   </section>
 
   <script>
     (function () {
       'use strict';
 
-      var TOTAL_ROUNDS = 10;
-      var BASE_HUES = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330];
+      var DIFFICULTIES = {
+        easy: {
+          label: 'Easy',
+          rounds: 8,
+          options: 3,
+          hueSteps: 6
+        },
+        normal: {
+          label: 'Normal',
+          rounds: 10,
+          options: 4,
+          hueSteps: 12
+        },
+        hard: {
+          label: 'Hard',
+          rounds: 12,
+          options: 6,
+          hueSteps: 18
+        }
+      };
+
+      var DEFAULT_DIFFICULTY = 'normal';
+
+      var OPTION_GRIDS = {
+        3: 'grid-cols-3',
+        4: 'grid-cols-2 md:grid-cols-4',
+        6: 'grid-cols-2 md:grid-cols-3'
+      };
+
+      var session = {
+        gameId: 'colour-match',
+        difficulty: DEFAULT_DIFFICULTY,
+        config: DIFFICULTIES[DEFAULT_DIFFICULTY]
+      };
 
       var state = {
         round: 1,
@@ -58,6 +164,8 @@
       };
 
       var els = {
+        intro: document.getElementById('intro'),
+        difficulty: document.getElementById('difficulty'),
         game: document.getElementById('game'),
         result: document.getElementById('result'),
         target: document.getElementById('target'),
@@ -68,8 +176,46 @@
         progressBar: document.getElementById('progress-bar'),
         finalScore: document.getElementById('final-score'),
         finalMessage: document.getElementById('final-message'),
-        playAgain: document.getElementById('play-again')
+        playAgain: document.getElementById('play-again'),
+        changeDifficulty: document.getElementById('change-difficulty'),
+        difficultyBadge: document.getElementById('difficulty-badge'),
+        introStart: document.getElementById('intro-start'),
+        startGame: document.getElementById('start-game'),
+        difficultyBack: document.getElementById('difficulty-back'),
+        difficultyRadios: document.querySelectorAll('input[name="difficulty"]')
       };
+
+      var SECTION_IDS = ['intro', 'difficulty', 'game', 'result'];
+
+      function showSection(id) {
+        SECTION_IDS.forEach(function (sectionId) {
+          document.getElementById(sectionId).classList.toggle('hidden', sectionId !== id);
+        });
+      }
+
+      function validDifficulty(value) {
+        return value && Object.prototype.hasOwnProperty.call(DIFFICULTIES, value);
+      }
+
+      function selectedDifficulty() {
+        var checked = document.querySelector('input[name="difficulty"]:checked');
+        return checked ? checked.value : null;
+      }
+
+      function updateStartState() {
+        els.startGame.disabled = !selectedDifficulty();
+      }
+
+      function showDifficulty(preselect) {
+        if (validDifficulty(preselect)) {
+          var radio = document.querySelector('input[name="difficulty"][value="' + preselect + '"]');
+          if (radio) {
+            radio.checked = true;
+          }
+        }
+        updateStartState();
+        showSection('difficulty');
+      }
 
       function shuffle(items) {
         var copy = items.slice();
@@ -86,8 +232,17 @@
         return 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
       }
 
+      function huePool(stepCount) {
+        var pool = [];
+        var step = 360 / stepCount;
+        for (var i = 0; i < stepCount; i += 1) {
+          pool.push(Math.round(step * i));
+        }
+        return pool;
+      }
+
       function generateRound() {
-        var hues = shuffle(BASE_HUES).slice(0, 4);
+        var hues = shuffle(huePool(session.config.hueSteps)).slice(0, session.config.options);
         var saturation = 58 + Math.floor(Math.random() * 18);
         var lightness = 46 + Math.floor(Math.random() * 14);
         var answerHue = hues[0];
@@ -117,14 +272,16 @@
         state.answerIndex = roundData.answerIndex;
 
         els.target.style.backgroundColor = roundData.targetCss;
-        els.roundText.textContent = 'Round ' + state.round + ' of ' + TOTAL_ROUNDS;
+        els.roundText.textContent = 'Round ' + state.round + ' of ' + session.config.rounds;
         els.scoreText.textContent = 'Score ' + state.score;
 
-        var progress = Math.max(5, Math.round(((state.round - 1) / TOTAL_ROUNDS) * 100));
+        var progress = Math.max(5, Math.round(((state.round - 1) / session.config.rounds) * 100));
         els.progressBar.style.width = progress + '%';
 
         els.feedback.textContent = '';
         els.feedback.className = 'mt-5 min-h-6 text-center text-sm sm:text-base font-semibold';
+
+        els.options.className = 'mt-3 grid gap-3 sm:gap-4 ' + (OPTION_GRIDS[session.config.options] || OPTION_GRIDS[4]);
 
         els.options.innerHTML = '';
 
@@ -181,7 +338,7 @@
 
         window.setTimeout(function () {
           state.round += 1;
-          if (state.round > TOTAL_ROUNDS) {
+          if (state.round > session.config.rounds) {
             showResult();
           } else {
             renderRound();
@@ -206,11 +363,10 @@
       }
 
       function showResult() {
-        var percentage = Math.round((state.score / TOTAL_ROUNDS) * 100);
-        els.finalScore.textContent = state.score + ' / ' + TOTAL_ROUNDS;
+        var percentage = Math.round((state.score / session.config.rounds) * 100);
+        els.finalScore.textContent = state.score + ' / ' + session.config.rounds;
         els.finalMessage.textContent = messageForScore(percentage);
-        els.game.classList.add('hidden');
-        els.result.classList.remove('hidden');
+        showSection('result');
       }
 
       function restartGame() {
@@ -218,15 +374,41 @@
         state.score = 0;
         state.locked = false;
         state.answerIndex = -1;
-        els.result.classList.add('hidden');
-        els.game.classList.remove('hidden');
         els.progressBar.style.width = '0%';
+        showSection('game');
         renderRound();
       }
 
+      function startGame() {
+        var difficulty = validDifficulty(selectedDifficulty()) ? selectedDifficulty() : DEFAULT_DIFFICULTY;
+        session.difficulty = difficulty;
+        session.config = DIFFICULTIES[difficulty];
+        els.difficultyBadge.textContent = DIFFICULTIES[difficulty].label;
+        els.difficultyBadge.classList.remove('hidden');
+        restartGame();
+      }
+
+      els.difficultyRadios.forEach(function (radio) {
+        radio.addEventListener('change', updateStartState);
+      });
+
+      els.introStart.addEventListener('click', function () {
+        showDifficulty(session.difficulty);
+      });
+
+      els.difficultyBack.addEventListener('click', function () {
+        showSection('intro');
+      });
+
+      els.startGame.addEventListener('click', startGame);
       els.playAgain.addEventListener('click', restartGame);
 
-      renderRound();
+      els.changeDifficulty.addEventListener('click', function () {
+        showDifficulty(session.difficulty);
+      });
+
+      updateStartState();
+      showSection('intro');
     })();
   </script>
 </body>
