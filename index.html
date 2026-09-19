@@ -8,26 +8,6 @@
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-slate-100 to-cyan-100 p-4 font-sans text-slate-800 antialiased">
 
-  <main id="intro" class="w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-slate-300/60 p-6 sm:p-10">
-    <header class="text-center mb-6">
-      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Colour Match</h1>
-      <p class="text-slate-500 mt-2 text-sm sm:text-base">Pick the colour that matches the target.</p>
-    </header>
-
-    <div class="rounded-2xl bg-slate-50 border border-slate-200/70 p-5 text-sm sm:text-base text-slate-600">
-      <p class="font-bold text-slate-700 mb-2">How to play</p>
-      <ul class="space-y-2">
-        <li>Look at the large colour square.</li>
-        <li>Tap the button that matches it.</li>
-        <li>Earn a point for every correct match.</li>
-      </ul>
-    </div>
-
-    <button id="intro-start" type="button" class="mt-8 w-full rounded-2xl bg-indigo-600 px-8 py-4 text-lg font-bold text-white shadow-md hover:bg-indigo-500 hover:shadow-lg active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300">
-      Let's Begin
-    </button>
-  </main>
-
   <main id="difficulty" class="hidden w-full max-w-xl bg-white rounded-3xl shadow-xl shadow-slate-300/60 p-6 sm:p-10">
     <header class="text-center mb-6">
       <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Choose Your Difficulty</h1>
@@ -68,9 +48,6 @@
 
     <button id="start-game" type="button" disabled class="mt-8 w-full rounded-2xl bg-indigo-600 px-8 py-4 text-lg font-bold text-white shadow-md hover:bg-indigo-500 hover:shadow-lg active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:cursor-not-allowed disabled:active:scale-100 disabled:hover:bg-slate-300 disabled:hover:shadow-none">
       Start Game
-    </button>
-    <button id="difficulty-back" type="button" class="mt-3 w-full rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-base font-bold text-slate-700 shadow-sm hover:bg-slate-50 active:scale-95 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300">
-      Back
     </button>
   </main>
 
@@ -164,7 +141,6 @@
       };
 
       var els = {
-        intro: document.getElementById('intro'),
         difficulty: document.getElementById('difficulty'),
         game: document.getElementById('game'),
         result: document.getElementById('result'),
@@ -179,13 +155,11 @@
         playAgain: document.getElementById('play-again'),
         changeDifficulty: document.getElementById('change-difficulty'),
         difficultyBadge: document.getElementById('difficulty-badge'),
-        introStart: document.getElementById('intro-start'),
         startGame: document.getElementById('start-game'),
-        difficultyBack: document.getElementById('difficulty-back'),
         difficultyRadios: document.querySelectorAll('input[name="difficulty"]')
       };
 
-      var SECTION_IDS = ['intro', 'difficulty', 'game', 'result'];
+      var SECTION_IDS = ['difficulty', 'game', 'result'];
 
       function showSection(id) {
         SECTION_IDS.forEach(function (sectionId) {
@@ -392,14 +366,6 @@
         radio.addEventListener('change', updateStartState);
       });
 
-      els.introStart.addEventListener('click', function () {
-        showDifficulty(session.difficulty);
-      });
-
-      els.difficultyBack.addEventListener('click', function () {
-        showSection('intro');
-      });
-
       els.startGame.addEventListener('click', startGame);
       els.playAgain.addEventListener('click', restartGame);
 
@@ -408,7 +374,7 @@
       });
 
       updateStartState();
-      showSection('intro');
+      showSection('difficulty');
     })();
   </script>
 </body>
